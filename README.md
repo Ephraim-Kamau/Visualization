@@ -19,6 +19,7 @@ in years. The user can zoom into a specific time period by clicking and dragging
 <ul>
 <li>HTML</li>
 <li>JavaScript</li>
+</ul>
 
 ### Support and Contact Details
 For more information, questions, or feedback, get in touch with me via email: kephraim19@gmail.com
