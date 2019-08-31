@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8" />
+
+   <title>World Coffee Production</title>
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+   <script src="https://code.highcharts.com/highcharts.js"></script>
+   <script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+</head>
+
+<body>
+   <div id="container" style="min-width: 410px; height: 500px; margin: 0 auto"></div>
+   <script language="JavaScript">
+      $(document).ready(function () {
+         var chart = {
+            zoomType: 'x',
+            plotBackgroundColor: '#FFFFFF'
+
+         };
+
+
+         /* Title for the Line Graph */
+         var title = {
+            text: 'World Coffee Production',
+            style: {
+               fontWeight: 'bold'
+            }
+         };
+
+         /* x-Axis */
+         var xAxis = {
+            tickInterval: 0,
+            type: 'datetime',
+            offset: 0,
+            labels: {
+               style: {
+                  color: 'red',
+                  fontSize: '12px',
+                  fontWeight: 'bold'
+               }
+            },
+            title: {
+               text: 'Data:USDA PS&D', /* Data Source */
+               align: 'high',
+               style: {
+                  fontWeight: 'bold',
+                  fontSize: '12px',
+               },
+               x: -19,
+               y: -42
+            },
+         };
+
+         /* y-Axis */
+         var yAxis = {
+            title: {
+               align: 'high',
+               text: 't',
+               style: {
+                  fontWeight: 'bold',
+                  fontSize: '15px',
+               },
+               rotation: 0,
+               offset: 0,
+               y: -20,
+               x: -25
+            },
+         };
+
+         var legend = {
+            enabled: false
+         };
+
+         /* Color settings for the Line Graph*/
+         var plotOptions = {
+            area: {
+               fillColor: {
+                  linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                  stops: [
+                     [0, Highcharts.getOptions().colors[1]],
+                     [0.5, Highcharts.Color(
+                        Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                  ]
+               },
+               marker: {
+                  radius: 2
+               },
+               lineWidth: 3,
+               states: {
+                  hover: {
+                     lineWidth: 3
+                  }
+               },
+               threshold: null,
+            }
+         };
+
+
+         var series = [{
+            type: 'area',
+            name: 'Production Qty',
+            color: '#23a6de',
+            pointInterval: 24 * 3600 * 1000 * 1000,
+            pointStart: Date.UTC(1993),
+            data: [
+               /*  Dates and Data for the Graph */
+
+               { x: Date.UTC(1993), y: 5577540 },
+               { x: Date.UTC(1994), y: 5822520 },
+               { x: Date.UTC(1995), y: 6227160 },
+               { x: Date.UTC(2000), y: 6849840 },
+               { x: Date.UTC(2001), y: 7033020 },
+               { x: Date.UTC(2002), y: 6697500 },
+               { x: Date.UTC(2003), y: 7637520 },
+               { x: Date.UTC(2004), y: 6676920 },
+               { x: Date.UTC(2005), y: 7316760 },
+               { x: Date.UTC(2006), y: 7072980 },
+               { x: Date.UTC(2007), y: 8043000 },
+               { x: Date.UTC(2013), y: 9481080 },
+               { x: Date.UTC(2014), y: 9603240 },
+               { x: Date.UTC(2017), y: 9702240 },
+               { x: Date.UTC(2018), y: 9519060 },
+               { x: Date.UTC(2019), y: 10470000 },
+               { x: Date.UTC(2020), y: 10147800 },
+            ]
+         }];
+
+         var json = {};
+         json.chart = chart;
+         json.title = title;
+         json.legend = legend;
+         json.xAxis = xAxis;
+         json.yAxis = yAxis;
+         json.series = series;
+         json.plotOptions = plotOptions;
+         $('#container').highcharts(json);
+      });
+   </script>
+</body>
+
+</html>
